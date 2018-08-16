@@ -13,4 +13,6 @@ public class CreateOppty {
         insert newOpp;
         return newOpp;
     }
+
+    //no ukaz sa
 }
