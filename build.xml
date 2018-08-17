@@ -1,0 +1,34 @@
+<project name="Jenkins Test" default="test" basedir="." xmlns:sf="antlib:com.salesforce">
+
+    <property file="build.properties"/>
+    <property environment="env"/>
+
+    <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
+       <classpath>
+           <pathelement location="ant-salesforce.jar" />
+       </classpath>
+   </taskdef>
+   <target name="jenkinsRetrieve">
+      <sf:deploy
+                  username="${jenkinsDeploy.username}"
+                  password="${jenkinsDeploy.password}"
+                  serverurl="${prod.serverurl}"
+                  pollWaitMillis="10000"
+                  maxPoll="5000"
+                  deployRoot="retrieve/src"
+                  checkonly="true">
+                  
+      </sf:deploy>
+  	</target>
+
+      <target name="jenkinsDeploy">
+      <sf:retrieve
+                  username="${jenkinsRetrieve.username}"
+                  password="${jenkinsRetrieve.password}"
+                  serverurl="${prod.serverurl}"
+                  pollWaitMillis="10000"
+                  maxPoll="5000"
+                  unpackaged="src/package.xml"
+                  retrieveTarget="/src" />
+    </target>  
+</project> 
