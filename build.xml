@@ -8,27 +8,5 @@
            <pathelement location="ant-salesforce.jar" />
        </classpath>
    </taskdef>
-   <target name="devJenDep">
-      <sf:deploy
-                  username="${devJen.username}"
-                  password="${devJen.password}"
-                  serverurl="${prod.serverurl}"
-                  pollWaitMillis="10000"
-                  maxPoll="5000"
-                  deployRoot="retrieve/src"
-                  checkonly="true">
-                  
-      </sf:deploy>
-  	</target>
-
-      <target name="devJenRet">
-      <sf:retrieve
-                  username="${devJen.username}"
-                  password="${devJen.password}"
-                  serverurl="${prod.serverurl}"
-                  pollWaitMillis="10000"
-                  maxPoll="5000"
-                  unpackaged="unpackaged/package.xml"
-                  retrieveTarget="/src" />
-    </target>  
+   
 </project> 
