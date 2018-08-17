@@ -15,7 +15,7 @@
                   serverurl="${prod.serverurl}"
                   pollWaitMillis="10000"
                   maxPoll="5000"
-                  deployRoot="retrieve/src"
+                  deployRoot="/src"
                   checkonly="true">
                   
       </sf:deploy>
